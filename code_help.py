@@ -20,7 +20,7 @@ def ask_question(): #story_path: str
 
     option = int(
         input(
-            "1. Input your own file, 2. Use sample file, 3. Don't use file: "
+            "(Enter a Number) 1. Input your own file, 2. Use sample file, 3. Don't use file: "
         )
     )
 
