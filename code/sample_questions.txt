@@ -1,0 +1,4 @@
+"How do I create a new person in this program?"
+"What does the greet method do?"
+"How can I check if a person is an adult?"
+"Can you provide an example of using this class?"
