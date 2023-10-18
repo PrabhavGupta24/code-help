@@ -9,5 +9,5 @@ pip install -r requirements.txt
 
 ### How to Run
 ```bash
-python evadb_qa.py
+python code_help.py
 ```
