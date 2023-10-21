@@ -44,7 +44,7 @@ class CodeEmbeddingExtractor(AbstractUDF, GPUCompatible):
         input_signatures=[
             PandasDataframe(
                 columns=["data"],
-                column_types=[NdArrayType.ANYTYPE],
+                column_types=[NdArrayType.STR],
                 column_shapes=[(1)],
             )
         ],
@@ -56,20 +56,10 @@ class CodeEmbeddingExtractor(AbstractUDF, GPUCompatible):
             )
         ],
     )
-    # def forward(self, df: pd.DataFrame) -> pd.DataFrame:
-    #     def _forward(row: pd.Series) -> np.ndarray:
-    #         data = row
-    #         embedded_list = self.model.encode(data)
-    #         return embedded_list
-
-    #     ret = pd.DataFrame()
-    #     ret["features"] = df.apply(_forward, axis=1)
-    #     return ret
-    
     
     def forward(self, df: pd.DataFrame) -> pd.DataFrame:
         def _forward(row: pd.Series) -> np.ndarray:
-            data = row
+            data = row[0]
             inputs = self.tokenizer(data, return_tensors="pt", truncation=True, padding=True)
             outputs = self.model(**inputs)
             return outputs.last_hidden_state.mean(dim=1).detach().numpy()

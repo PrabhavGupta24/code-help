@@ -11,3 +11,5 @@ pip install -r requirements.txt
 ```bash
 python code_help.py
 ```
+
+Code Referenced from https://github.com/Chitti-Ankith/Story-QA-using-GPT4All/tree/main
