@@ -12,8 +12,10 @@ pip install -r requirements.txt
 python code_help.py
 ```
 
+### Reference
 Code Referenced from https://github.com/Chitti-Ankith/Story-QA-using-GPT4All/tree/main
 
+### What Happens
 - Inputs a file specified by the user (or a default file) and loads it into EvaDB as a string. 
 - Then, it creates code embeddings using a transformers model (all-MiniLM-L6-v2).
 - Creates an index using Qdrant to help with searching.
